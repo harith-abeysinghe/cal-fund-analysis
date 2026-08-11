@@ -1,0 +1,1 @@
+"""Configuration module for CAL Fund Analysis."""

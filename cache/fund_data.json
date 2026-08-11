@@ -1,0 +1,155 @@
+{
+  "date": "2026-07-09",
+  "funds": {
+    "Capital Alliance Corporate Treasury Fund": {
+      "FUND": "CTF",
+      "FUND_NAME": "Capital Alliance Corporate Treasury Fund",
+      "LATEST_DATE": "2026-07-08",
+      "LATEST_PRICE": "27.9443000000",
+      "OLD_DATE": "2026-06-07",
+      "OLD_PRICE": "27.7623000000",
+      "PORTFOLIO": "5306878.2891",
+      "RATE_PERIOD": "30"
+    },
+    "Capital Alliance Medium Risk Debt Fund": {
+      "FUND": "MRDF",
+      "FUND_NAME": "Capital Alliance Medium Risk Debt Fund",
+      "LATEST_DATE": "2026-07-08",
+      "LATEST_PRICE": "25.2518000000",
+      "OLD_DATE": "2026-06-07",
+      "OLD_PRICE": "25.0839000000",
+      "PORTFOLIO": "3422941.1911",
+      "RATE_PERIOD": "30"
+    },
+    "CAL Fixed Income Opportunities Fund": {
+      "FUND": "CDGTF",
+      "FUND_NAME": "CAL Fixed Income Opportunities Fund",
+      "LATEST_DATE": "2026-07-08",
+      "LATEST_PRICE": "43.0703000000",
+      "OLD_DATE": "2026-06-07",
+      "OLD_PRICE": "42.6837000000",
+      "PORTFOLIO": "79472805060.1694",
+      "RATE_PERIOD": "30"
+    },
+    "CAL Money Market Fund": {
+      "FUND": "GMMF",
+      "FUND_NAME": "CAL Money Market Fund",
+      "LATEST_DATE": "2026-07-08",
+      "LATEST_PRICE": "7.2708000000",
+      "OLD_DATE": "2026-06-07",
+      "OLD_PRICE": "7.2218000000",
+      "PORTFOLIO": "133000644.6370",
+      "RATE_PERIOD": "7"
+    },
+    "Capital Alliance Gilt Fund": {
+      "FUND": "GF",
+      "FUND_NAME": "Capital Alliance Gilt Fund",
+      "LATEST_DATE": "2026-07-08",
+      "LATEST_PRICE": "14.4494000000",
+      "OLD_DATE": "2026-06-07",
+      "OLD_PRICE": "14.3542000000",
+      "PORTFOLIO": "4339082.3675",
+      "RATE_PERIOD": "30"
+    },
+    "Capital Alliance Income Fund": {
+      "FUND": "IF",
+      "FUND_NAME": "Capital Alliance Income Fund",
+      "LATEST_DATE": "2026-07-08",
+      "LATEST_PRICE": "41.7871000000",
+      "OLD_DATE": "2026-06-07",
+      "OLD_PRICE": "41.4852000000",
+      "PORTFOLIO": "1070924217.1986",
+      "RATE_PERIOD": "30"
+    },
+    "Capital Alliance Gilt Trading Fund": {
+      "FUND": "GTF",
+      "FUND_NAME": "Capital Alliance Gilt Trading Fund",
+      "LATEST_DATE": "2026-07-08",
+      "LATEST_PRICE": "81.3388000000",
+      "OLD_DATE": "2026-06-07",
+      "OLD_PRICE": "80.8338000000",
+      "PORTFOLIO": "2619395.4115",
+      "RATE_PERIOD": "30"
+    },
+    "Capital Alliance Investment Grade Fund": {
+      "FUND": "IGF",
+      "FUND_NAME": "Capital Alliance Investment Grade Fund",
+      "LATEST_DATE": "2026-07-09",
+      "LATEST_PRICE": "40.7916000000",
+      "OLD_DATE": "2026-06-07",
+      "OLD_PRICE": "40.4078000000",
+      "PORTFOLIO": "56347842372.3931",
+      "RATE_PERIOD": "30"
+    },
+    "Capital Alliance High Yield Fund": {
+      "FUND": "CAHYF",
+      "FUND_NAME": "Capital Alliance High Yield Fund",
+      "LATEST_DATE": "2026-07-08",
+      "LATEST_PRICE": "46.6378000000",
+      "OLD_DATE": "2026-06-07",
+      "OLD_PRICE": "46.1913000000",
+      "PORTFOLIO": "26879052306.1803",
+      "RATE_PERIOD": "30"
+    },
+    "Capital Alliance Quantitative Equity Fund": {
+      "FUND": "QEF",
+      "FUND_NAME": "Capital Alliance Quantitative Equity Fund",
+      "LATEST_DATE": "2026-07-08",
+      "LATEST_PRICE": "68.8060000000",
+      "OLD_DATE": "2026-06-07",
+      "OLD_PRICE": "68.8375000000",
+      "PORTFOLIO": "14066519637.1216",
+      "RATE_PERIOD": "30"
+    },
+    "Capital Alliance Balanced Fund": {
+      "FUND": "BF",
+      "FUND_NAME": "Capital Alliance Balanced Fund",
+      "LATEST_DATE": "2026-07-08",
+      "LATEST_PRICE": "35.2079000000",
+      "OLD_DATE": "2026-06-07",
+      "OLD_PRICE": "35.1503000000",
+      "PORTFOLIO": "392406533.1053",
+      "RATE_PERIOD": "30"
+    },
+    "CAL Five year Optimum Fund": {
+      "FUND": "FYOF",
+      "FUND_NAME": "CAL Five year Optimum Fund",
+      "LATEST_DATE": "2026-07-08",
+      "LATEST_PRICE": "15.0891000000",
+      "OLD_DATE": "2026-06-07",
+      "OLD_PRICE": "15.0429000000",
+      "PORTFOLIO": "2925841615.7707",
+      "RATE_PERIOD": "30"
+    },
+    "CAL Five Year Closed End Fund": {
+      "FUND": "FYCF",
+      "FUND_NAME": "CAL Five Year Closed End Fund",
+      "LATEST_DATE": "2026-07-08",
+      "LATEST_PRICE": "12.0201000000",
+      "OLD_DATE": "2026-06-07",
+      "OLD_PRICE": "11.8921000000",
+      "PORTFOLIO": "10997478325.8828",
+      "RATE_PERIOD": "30"
+    },
+    "CAL Three Year Closed End Fund ": {
+      "FUND": "TYCF",
+      "FUND_NAME": "CAL Three Year Closed End Fund ",
+      "LATEST_DATE": "2026-07-08",
+      "LATEST_PRICE": "10.5753000000",
+      "OLD_DATE": "2026-06-07",
+      "OLD_PRICE": "10.4667000000",
+      "PORTFOLIO": "8896620462.4502",
+      "RATE_PERIOD": "30"
+    },
+    "CAL Islamic Money Market Fund": {
+      "FUND": "IMMF",
+      "FUND_NAME": "CAL Islamic Money Market Fund",
+      "LATEST_DATE": "2026-07-08",
+      "LATEST_PRICE": "10.3401000000",
+      "OLD_DATE": "2026-06-07",
+      "OLD_PRICE": "10.2687000000",
+      "PORTFOLIO": "934584016.4565",
+      "RATE_PERIOD": "7"
+    }
+  }
+}
