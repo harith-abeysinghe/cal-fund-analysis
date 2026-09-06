@@ -66,6 +66,13 @@ def main() -> None:
     recommendation_output += "\n💰 Total Allocation: 100,000 LKR or less\n"
     recommendation_output += "\n📈 Pattern Analysis: Active Momentum Phase\n"
 
+    # Save recommendation to output directory for WhatsApp gateway pickup
+    date_str = funds[0]["latest_date"]
+    output_dir = PROJECT_ROOT / "output"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    recommendation_path = output_dir / f"recommendation_{date_str}.txt"
+    recommendation_path.write_text(recommendation_output.strip(), encoding="utf-8")
+    print(f"[OK] Recommendation saved to {recommendation_path}")
     print(recommendation_output.strip())
 
 

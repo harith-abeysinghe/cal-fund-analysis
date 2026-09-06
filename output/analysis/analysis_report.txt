@@ -1,0 +1,17 @@
+CAL Unit Trust Analysis | Budget: 90,000 LKR/month | Profile: balanced
+
+Recommended funds (top 3):
+1. Investment Grade Fund: 35,000 LKR/month
+2. CAL Income Fund: 31,000 LKR/month
+3. Capital Alliance Gilt Fund: 24,000 LKR/month
+
+Full ranking (heuristic score: 55% one-year return, 25% recent return, 20% stability):
+1. Investment Grade Fund: score 96.27 | 1Y 9.92% | recent 0.92% | volatility 0.00% | Strong candidate | suggested 35,000 LKR
+2. CAL Income Fund: score 90.58 | 1Y 10.58% | recent 0.72% | volatility 0.01% | Worth considering | suggested 31,000 LKR
+3. Capital Alliance Gilt Fund: score 70.48 | 1Y 7.49% | recent 0.65% | volatility 0.01% | Worth considering | suggested 24,000 LKR
+4. High Yield Fund: score 67.62 | 1Y 10.43% | recent 0.65% | volatility 0.43% | Diversifier / monitor | suggested 0 LKR
+5. Quantitative Equity Fund: score 2.20 | 1Y 0.87% | recent 0.32% | volatility 0.37% | Diversifier / monitor | suggested 0 LKR
+
+Total suggested allocation: 90,000 LKR
+
+Important: this is a data-based screening tool, not personal investment advice. Review fees, liquidity, tax, risk tolerance, and the latest fund documents before investing.

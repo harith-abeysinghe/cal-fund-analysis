@@ -1,0 +1,6 @@
+name,file,observations,latest_date,latest_price,latest_period_return_pct,one_year_return_pct,recent_return_pct,short_period_volatility_pct,score,opportunity,allocation_lkr
+Investment Grade Fund,Investment_Grade_Fund.csv,24,2026-09-03,41.426,9.9189,9.9189,0.9248,0.0,96.27,Strong candidate,35000
+CAL Income Fund,CAL_Income_Fund.csv,26,2026-09-03,42.3591,10.578,10.578,0.716,0.011699999999999988,90.58,Worth considering,31000
+Capital Alliance Gilt Fund,Capital_Alliance_Gilt_Fund.csv,27,2026-09-03,14.6234,7.4855,7.4855,0.6524,0.010800000000000032,70.48,Worth considering,24000
+High Yield Fund,High_Yield_Fund.csv,28,2026-09-03,47.4595,10.4336,10.4336,0.6457160000000001,0.4324110608884406,67.62,Diversifier / monitor,0
+Quantitative Equity Fund,Quantitative_Equity_Fund.csv,28,2026-09-03,66.8718,0.8702,0.8702,0.32145,0.36724999999999997,2.2,Diversifier / monitor,0

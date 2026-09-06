@@ -27,19 +27,24 @@ python main.py
 ### analyze.py - Investment Analysis & Recommendation Script
 
 **Purpose:** Analyze historical data and generate investment recommendations
-**Prerequisite:** Minimum 20 weeks of historical data required
+**Prerequisite:** CSV files in `data/` using the scraper schema. The script works with the current partial history and improves as more observations are collected.
 
 **Features:**
 - Analyzes all available fund CSV files
 - Filters only the 5 tracked target funds
-- Identifies top 3 performing funds based on latest returns
-- Generates WhatsApp-ready recommendation messages
-- Implements strategic allocation logic within 100,000 LKR limit
+- Ranks funds using one-year return, recent return, and short-period volatility
+- Repairs a concatenated CSV row without changing source files
+- Generates CSV, JSON, and a readable report under `output/analysis/`
+- Recommends the top three funds by default and allocates the monthly budget only to those funds
+- Supports `--top-n` if you want a different number of recommendations
 
 **Recommended Execution:**
 ```bash
 # Run after main.py has collected sufficient data
-python analyze.py
+python analyze.py --budget 90000 --risk-profile balanced
+
+# Other profiles: conservative or growth
+python analyze.py --budget 90000 --risk-profile conservative
 ```
 
 ### src/services/main_utils.py - Market Pattern Allocation Engine
@@ -82,10 +87,10 @@ CSV files generated in DATA_DIR:
 5. Capital Alliance Gilt Fund
 
 **Investment Rules:**
-- Maximum monthly investment: 100,000 LKR
-- Minimum allocation per fund: 10,000 LKR
-- Maximum allocation per fund: 60,000 LKR
-- Requirements: minimum 20 weeks of data for recommendations
+- Default monthly budget: 90,000 LKR
+- Default profile: balanced
+- A 10% floor is applied to each recommended fund, then the remaining budget is weighted by score and risk profile
+- Scores are screening heuristics, not forecasts or personal investment advice
 
 ## Execution and Scheduling
 

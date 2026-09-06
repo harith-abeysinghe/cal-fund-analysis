@@ -1,0 +1,82 @@
+{
+  "budget_lkr": 90000,
+  "risk_profile": "balanced",
+  "recommended_funds": [
+    "Investment Grade Fund",
+    "CAL Income Fund",
+    "Capital Alliance Gilt Fund"
+  ],
+  "generated_from": "data/*.csv",
+  "funds": [
+    {
+      "name": "Investment Grade Fund",
+      "file": "Investment_Grade_Fund.csv",
+      "observations": 24,
+      "latest_date": "2026-09-03",
+      "latest_price": 41.426,
+      "latest_period_return_pct": 9.9189,
+      "one_year_return_pct": 9.9189,
+      "recent_return_pct": 0.9248,
+      "short_period_volatility_pct": 0.0,
+      "score": 96.27,
+      "opportunity": "Strong candidate",
+      "allocation_lkr": 35000
+    },
+    {
+      "name": "CAL Income Fund",
+      "file": "CAL_Income_Fund.csv",
+      "observations": 26,
+      "latest_date": "2026-09-03",
+      "latest_price": 42.3591,
+      "latest_period_return_pct": 10.578,
+      "one_year_return_pct": 10.578,
+      "recent_return_pct": 0.716,
+      "short_period_volatility_pct": 0.011699999999999988,
+      "score": 90.58,
+      "opportunity": "Worth considering",
+      "allocation_lkr": 31000
+    },
+    {
+      "name": "Capital Alliance Gilt Fund",
+      "file": "Capital_Alliance_Gilt_Fund.csv",
+      "observations": 27,
+      "latest_date": "2026-09-03",
+      "latest_price": 14.6234,
+      "latest_period_return_pct": 7.4855,
+      "one_year_return_pct": 7.4855,
+      "recent_return_pct": 0.6524,
+      "short_period_volatility_pct": 0.010800000000000032,
+      "score": 70.48,
+      "opportunity": "Worth considering",
+      "allocation_lkr": 24000
+    },
+    {
+      "name": "High Yield Fund",
+      "file": "High_Yield_Fund.csv",
+      "observations": 28,
+      "latest_date": "2026-09-03",
+      "latest_price": 47.4595,
+      "latest_period_return_pct": 10.4336,
+      "one_year_return_pct": 10.4336,
+      "recent_return_pct": 0.6457160000000001,
+      "short_period_volatility_pct": 0.4324110608884406,
+      "score": 67.62,
+      "opportunity": "Diversifier / monitor",
+      "allocation_lkr": 0
+    },
+    {
+      "name": "Quantitative Equity Fund",
+      "file": "Quantitative_Equity_Fund.csv",
+      "observations": 28,
+      "latest_date": "2026-09-03",
+      "latest_price": 66.8718,
+      "latest_period_return_pct": 0.8702,
+      "one_year_return_pct": 0.8702,
+      "recent_return_pct": 0.32145,
+      "short_period_volatility_pct": 0.36724999999999997,
+      "score": 2.2,
+      "opportunity": "Diversifier / monitor",
+      "allocation_lkr": 0
+    }
+  ]
+}
