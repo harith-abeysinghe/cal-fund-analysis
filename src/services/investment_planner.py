@@ -1,5 +1,4 @@
-from typing import List, Dict, Tuple
-from pathlib import Path
+from typing import Dict, List
 
 
 class InvestmentPlanner:
@@ -28,8 +27,3 @@ class InvestmentPlanner:
             allocations.append((fund['name'], allocation))
 
         return allocations
-
-
-# Exportable functions
-get_top_funds = InvestmentPlanner.get_top_funds
-plan_investment = InvestmentPlanner.plan_investment

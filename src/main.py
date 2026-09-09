@@ -1,15 +1,11 @@
-"""Weekly CAL fund data scraper - main entry point.
+"""CAL fund scraper and recommendation entry point."""
 
-Usage:
-    cd "D:/Personal/CAL Fund Analysis"
-    .venv\Scripts\activate
-    python src/main.py
-"""
-
+import argparse
 from pathlib import Path
 
-from src.services.fund_scraper import FundScraper
 from src.services.csv_manager import CSVManager
+from src.services.fund_scraper import FundScraper
+from src.services.investment_planner import InvestmentPlanner
 
 # Base URL for CAL fund data API
 CAL_API_BASE = "https://cal.lk/wp-admin/admin-ajax.php"
@@ -19,44 +15,33 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = PROJECT_ROOT / "data"
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-# Import InvestmentPlanner for generating recommendations
-from src.services.investment_planner import InvestmentPlanner
 
-
-def main() -> None:
-    """Scrape CAL fund rates, record to CSV files, and generate investment recommendations."""
+def scrape_and_record() -> list[dict]:
+    """Fetch the tracked funds and append any new observations to their CSVs."""
     print("[Init] Initializing CAL Fund Scraper...")
-
-    # Step 1: Use FundScraper to fetch fund data from the CAL API
-    scraper = FundScraper(url=CAL_API_BASE, data_dir=DATA_DIR)
+    scraper = FundScraper(url=CAL_API_BASE)
     funds = scraper.scrape_funds()
 
     if not funds:
         print("[Warn] No fund data retrieved - nothing to record")
-        return
+        return []
 
     print(f"[OK] Scraped {len(funds)} fund data point(s) from CAL API")
-
-    # Step 2: Use CSVManager to write the returns to the relevant CSV files
     csv_manager = CSVManager(data_dir=DATA_DIR)
     csv_manager.record_returns(funds)
+    print("[OK] Updated fund data recorded to CSV files")
+    return funds
 
-    print(f"[OK] Updated fund data recorded to CSV files")
 
-    # Step 3: Generate investment recommendations
-    # Use max LKR investment as per project spec (100,000 LKR/month max)
+def write_recommendation(funds: list[dict]) -> None:
+    """Generate the existing recommendation output for interactive runs."""
     planner = InvestmentPlanner(max_investment_lkr=100_000)
-
-    # Get top funds based on price growth
     top_funds = planner.get_top_funds(funds, count=3)
     if not top_funds:
         print("[Info] No funds available for recommendation")
         return
 
-    # Compute allocation plan
     allocations = planner.plan_investment(top_funds)
-
-    # Prepare recommendation output
     recommendation_output = "📊 Investment Recommendation - {current_date}\n\n".format(
         current_date=funds[0]["latest_date"]
     )
@@ -66,7 +51,6 @@ def main() -> None:
     recommendation_output += "\n💰 Total Allocation: 100,000 LKR or less\n"
     recommendation_output += "\n📈 Pattern Analysis: Active Momentum Phase\n"
 
-    # Save recommendation to output directory for WhatsApp gateway pickup
     date_str = funds[0]["latest_date"]
     output_dir = PROJECT_ROOT / "output"
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -76,5 +60,23 @@ def main() -> None:
     print(recommendation_output.strip())
 
 
+def main(argv: list[str] | None = None) -> int:
+    """Scrape data, with optional recommendation generation."""
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--scrape-only",
+        action="store_true",
+        help="update data/*.csv without generating recommendation output",
+    )
+    args = parser.parse_args(argv)
+
+    funds = scrape_and_record()
+    if not funds:
+        return 1
+    if not args.scrape_only:
+        write_recommendation(funds)
+    return 0
+
+
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

@@ -1,0 +1,49 @@
+name: Update fund data
+
+on:
+  schedule:
+    # 18:00 Tuesday-Saturday in Sri Lanka (12:30 UTC).
+    - cron: "30 12 * * 2-6"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-fund-data
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Scrape fund data
+        run: python -m src.main --scrape-only
+
+      - name: Commit CSV updates
+        shell: bash
+        run: |
+          git add data/*.csv
+          if git diff --cached --quiet; then
+            echo "No new fund data to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(data): update CAL fund CSVs"
+          git push

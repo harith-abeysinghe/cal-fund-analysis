@@ -1,28 +1,7 @@
 """FundScraper service - scrapes CAL fund rates from the AJAX endpoint."""
 
-import csv
 import datetime
-import json
-import sys
-from pathlib import Path
-from typing import List, Optional, TypedDict
-
-try:
-    import requests
-except ImportError:
-    print("Install dependencies: pip install requests")
-    sys.exit(1)
-
-
-class FundData(TypedDict):
-    """TypedDict for fund data structure."""
-    name: str
-    price_growth: float
-    old_date: str
-    old_price: float
-    latest_date: str
-    latest_price: float
-    price_difference: float
+import requests
 
 
 class FundScraper:
@@ -39,12 +18,11 @@ class FundScraper:
     }
     TARGET_FUNDS = list(FUND_CODE_MAP.keys())
 
-    def __init__(self, url: str, data_dir: Optional[Path] = None) -> None:
+    def __init__(self, url: str) -> None:
         self.url = url
-        self.data_dir = data_dir
-        self._page_content: Optional[dict] = None
+        self._page_content: dict | None = None
 
-    def scrape_funds(self) -> List[dict]:
+    def scrape_funds(self) -> list[dict]:
         """Extract fund data from the AJAX endpoint for target funds only."""
         if not self._fetch_page():
             return []
@@ -53,11 +31,11 @@ class FundScraper:
         funds_list = self._page_content.get("UTMS_FUND", []) if isinstance(self._page_content, dict) else []
 
         # Check if we got valid data
-        if not funds_list or len(funds_list) == 0:
-            print("[Info] No fund data in API response, using fallback CSV data")
-            return self._load_fallback_funds()
+        if not funds_list:
+            print("[Info] No fund data in API response")
+            return []
 
-        funds: List[dict] = []
+        funds: list[dict] = []
         for entry in funds_list:
             code = entry.get("FUND")
             if code not in self.TARGET_FUNDS:
@@ -86,75 +64,6 @@ class FundScraper:
                 "price_difference": round(price_difference, 4),
                 "fund_name": entry.get("FUND_NAME", code),
             })
-
-        return funds
-
-    def _load_fallback_funds(self) -> List[dict]:
-        """
-        Load fallback fund data from CSV files if the API returns empty results.
-        This reads the most recent data from the data directory.
-        """
-        if not self.data_dir or not self.data_dir.exists():
-            print("[Error] Fallback data directory not found")
-            return []
-
-        funds: List[dict] = []
-        for csv_file in self.data_dir.glob("*.csv"):
-            fund_name = csv_file.stem  # filename without .csv
-            try:
-                with csv_file.open('r', encoding='utf-8') as f:
-                    reader = csv.DictReader(f)
-                    rows = list(reader)
-                    if not rows:
-                        continue
-                    latest_row = rows[-1]  # Get the most recent row
-
-                # Map CSV columns to FundData fields
-                # CSV headers: scraped_date,old_date,old_price,new_date,new_price,price_difference,price_growth
-                try:
-                    growth_value = float(latest_row.get('price_growth', 0) or 0)
-                except (ValueError, TypeError):
-                    growth_value = 0.0
-
-                try:
-                    price_diff = float(latest_row.get('price_difference', 0) or 0)
-                except (ValueError, TypeError):
-                    price_diff = 0.0
-
-                try:
-                    old_price_val = float(latest_row.get('old_price', 0) or 0)
-                except (ValueError, TypeError):
-                    old_price_val = 0.0
-
-                try:
-                    new_price_val = float(latest_row.get('new_price', 0) or 0)
-                except (ValueError, TypeError):
-                    new_price_val = 0.0
-
-                try:
-                    old_date_val = latest_row.get('old_date', '') or ''
-                except (ValueError, TypeError):
-                    old_date_val = ''
-
-                try:
-                    new_date_val = latest_row.get('new_date', '') or ''
-                except (ValueError, TypeError):
-                    new_date_val = ''
-
-                # Prepare the fallback FundData entry
-                fund_entry = {
-                    "name": fund_name,
-                    "price_growth": round(growth_value, 4),
-                    "old_date": old_date_val,
-                    "old_price": old_price_val,
-                    "latest_date": new_date_val,
-                    "latest_price": new_price_val,
-                    "price_difference": round(price_diff, 4),
-                }
-                funds.append(fund_entry)
-
-            except Exception as e:
-                print(f"[Error] Failed to load fallback fund data for {csv_file}: {e}")
 
         return funds
 

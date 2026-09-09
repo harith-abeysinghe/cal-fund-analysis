@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.env
+
+# Local agent and editor state
+.claude/
+.hermes/
+.idea/
+
+# Generated application files
+cache/
+output/
+
+# Next.js
+cal-dashboard/.next/
+cal-dashboard/node_modules/
+*.tsbuildinfo

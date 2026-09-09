@@ -1,8 +1,7 @@
-from pathlib import Path
-from typing import List, Dict
 import csv
-import datetime
 from datetime import date, timedelta
+from pathlib import Path
+from typing import Dict, List
 
 class CSVManager:
     def __init__(self, data_dir: Path):
@@ -34,7 +33,7 @@ class CSVManager:
             days_to_subtract = 1 if today_weekday == 5 else 2
             scraped_date = today - timedelta(days=days_to_subtract)
         else:
-            # Wednesday (3), Thursday (4), or Friday (5) - use today
+            # Wednesday (2), Thursday (3), or Friday (4) - use today
             scraped_date = today
 
         return scraped_date.isoformat()
@@ -51,7 +50,7 @@ class CSVManager:
             write_entry = True
             if file_exists:
                 try:
-                    with csv_path.open('r', newline='') as f:
+                    with csv_path.open('r', newline='', encoding='utf-8') as f:
                         reader = csv.DictReader(f)
                         for row in reader:
                             # Check if this exact entry already exists
@@ -66,7 +65,7 @@ class CSVManager:
 
             # Append new data if it doesn't exist and no duplicate was found
             if write_entry:
-                with csv_path.open('a', newline='') as f:
+                with csv_path.open('a', newline='', encoding='utf-8') as f:
                     writer = csv.writer(f)
                     if not file_exists:
                         writer.writerow(['scraped_date', 'old_date', 'old_price', 'new_date', 'new_price', 'price_difference', 'price_growth'])
@@ -80,6 +79,3 @@ class CSVManager:
                         fund['price_difference'],
                         fund['price_growth']
                     ])
-
-# Exportable functions
-record_returns = CSVManager.record_returns
