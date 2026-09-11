@@ -1,6 +1,7 @@
 """CAL fund scraper and recommendation entry point."""
 
 import argparse
+import sys
 from pathlib import Path
 
 from src.services.csv_manager import CSVManager
@@ -14,6 +15,15 @@ CAL_API_BASE = "https://cal.lk/wp-admin/admin-ajax.php"
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = PROJECT_ROOT / "data"
 DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def print_console_safe(value: str) -> None:
+    """Print Unicode text even when Windows stdout uses a legacy code page."""
+    try:
+        print(value)
+    except UnicodeEncodeError:
+        encoding = sys.stdout.encoding or "utf-8"
+        print(value.encode(encoding, errors="replace").decode(encoding))
 
 
 def scrape_and_record() -> list[dict]:
@@ -57,7 +67,7 @@ def write_recommendation(funds: list[dict]) -> None:
     recommendation_path = output_dir / f"recommendation_{date_str}.txt"
     recommendation_path.write_text(recommendation_output.strip(), encoding="utf-8")
     print(f"[OK] Recommendation saved to {recommendation_path}")
-    print(recommendation_output.strip())
+    print_console_safe(recommendation_output.strip())
 
 
 def main(argv: list[str] | None = None) -> int:

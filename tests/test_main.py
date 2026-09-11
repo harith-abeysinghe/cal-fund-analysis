@@ -1,4 +1,5 @@
 import csv
+import io
 import tempfile
 import unittest
 from pathlib import Path
@@ -8,6 +9,18 @@ from src import main
 
 
 class MainCommandTests(unittest.TestCase):
+    def test_console_output_falls_back_for_cp1252(self):
+        output = io.BytesIO()
+        console = io.TextIOWrapper(output, encoding="cp1252", write_through=True)
+
+        with patch.object(main.sys, "stdout", console):
+            main.print_console_safe("📊 Investment Recommendation")
+
+        self.assertEqual(
+            output.getvalue().decode("cp1252").splitlines(),
+            ["? Investment Recommendation"],
+        )
+
     @patch("src.main.FundScraper")
     def test_scrape_and_record_updates_csv_without_network(self, fund_scraper):
         fund = {
