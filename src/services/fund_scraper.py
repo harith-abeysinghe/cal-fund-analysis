@@ -15,6 +15,7 @@ class FundScraper:
         "QEF": "Quantitative Equity Fund",
         "CAHYF": "High Yield Fund",
         "GF": "Capital Alliance Gilt Fund",
+        "CDGTF": "CAL Fixed Income Opportunities Fund",
     }
     TARGET_FUNDS = list(FUND_CODE_MAP.keys())
 

@@ -1,6 +1,6 @@
 # CAL Fund Analysis
 
-Collects five CAL unit-trust fund prices into CSV files, ranks their historical
+Collects six CAL unit-trust fund prices into CSV files, ranks their historical
 performance, and serves the results through an optional Next.js dashboard.
 
 ## Setup

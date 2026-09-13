@@ -6,6 +6,30 @@ from pathlib import Path
 from unittest.mock import patch
 
 from src import main
+from src.services.fund_scraper import FundScraper
+
+
+class FundScraperTests(unittest.TestCase):
+    def test_scrapes_fixed_income_opportunities_fund(self):
+        scraper = FundScraper(url="https://example.test")
+        scraper._page_content = {
+            "UTMS_FUND": [{
+                "FUND": "CDGTF",
+                "FUND_NAME": "CAL Fixed Income Opportunities Fund",
+                "OLD_DATE": "2025-09-01",
+                "OLD_PRICE": "39.7237",
+                "LATEST_DATE": "2026-09-10",
+                "LATEST_PRICE": "43.8725",
+            }]
+        }
+
+        with patch.object(scraper, "_fetch_page", return_value=True):
+            funds = scraper.scrape_funds()
+
+        self.assertEqual(len(funds), 1)
+        self.assertEqual(funds[0]["name"], "CAL Fixed Income Opportunities Fund")
+        self.assertEqual(funds[0]["fund_name"], "CAL Fixed Income Opportunities Fund")
+        self.assertEqual(funds[0]["latest_price"], 43.8725)
 
 
 class MainCommandTests(unittest.TestCase):

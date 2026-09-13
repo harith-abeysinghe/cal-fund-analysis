@@ -148,7 +148,7 @@ export default function Home() {
         <div>
           <p className="eyebrow">CAL Fund Analysis</p>
           <h1>Fund Performance Dashboard</h1>
-          <p className="subtitle">Charts from the five CAL CSV files, with one-click refresh through the existing Python scripts.</p>
+          <p className="subtitle">Charts from the tracked CAL fund CSV files, with one-click refresh through the existing Python scripts.</p>
         </div>
         <div className="hero-actions">
           <div className="refresh-box"><span>Latest fund date</span><strong>{latestDate}</strong></div>

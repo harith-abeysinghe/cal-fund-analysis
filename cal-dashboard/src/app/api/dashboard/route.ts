@@ -16,6 +16,7 @@ const FUND_CODES: Record<string, string> = {
   Quantitative_Equity_Fund: 'QEF',
   High_Yield_Fund: 'CAHYF',
   Capital_Alliance_Gilt_Fund: 'GF',
+  CAL_Fixed_Income_Opportunities_Fund: 'CDGTF',
 };
 
 function parseNumber(value: string | undefined): number {
