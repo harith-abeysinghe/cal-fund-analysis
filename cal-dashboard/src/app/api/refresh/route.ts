@@ -9,47 +9,53 @@ export const dynamic = 'force-dynamic';
 
 const execFileAsync = promisify(execFile);
 const REPO_ROOT = path.resolve(process.cwd(), '..');
-const VENV_PYTHON = path.join(REPO_ROOT, '.venv', 'Scripts', 'python.exe');
-const PYTHON = fs.existsSync(VENV_PYTHON) ? VENV_PYTHON : 'python';
+const VENV_CANDIDATES = [
+  path.join(REPO_ROOT, '.venv', 'Scripts', 'python.exe'),
+  path.join(REPO_ROOT, '.venv', 'bin', 'python'),
+];
+const PYTHON = VENV_CANDIDATES.find((candidate) => fs.existsSync(candidate)) ?? 'python';
+const PROFILES = new Set(['conservative', 'balanced', 'growth']);
 
-async function runPython(args: string[]): Promise<string> {
-  const { stdout, stderr } = await execFileAsync(PYTHON, args, {
-    cwd: REPO_ROOT,
-    timeout: 180_000,
-    windowsHide: true,
-    maxBuffer: 1024 * 1024 * 4,
-  });
-  return [stdout, stderr].filter(Boolean).join('\n');
+type RefreshRequest = { budget?: unknown; riskProfile?: unknown; years?: unknown; skipUpdate?: unknown };
+
+function parseRequest(body: RefreshRequest): { args: string[] } | { error: string } {
+  const budget = Number(body.budget ?? 90_000);
+  const years = Number(body.years ?? 5);
+  const profile = String(body.riskProfile ?? 'balanced');
+  if (!Number.isInteger(budget) || budget < 1 || budget > 1_000_000_000) return { error: 'Budget must be a whole number of LKR.' };
+  if (!Number.isInteger(years) || years < 1 || years > 40) return { error: 'Years must be between 1 and 40.' };
+  if (!PROFILES.has(profile)) return { error: 'Unknown risk profile.' };
+  const command = body.skipUpdate === true ? 'analyze' : 'run';
+  return { args: ['-m', 'src.main', command, '--budget', String(budget), '--risk-profile', profile, '--years', String(years)] };
 }
 
-export async function POST() {
-  const output: string[] = [];
-
+export async function POST(request: Request) {
+  const body = (await request.json().catch(() => ({}))) as RefreshRequest;
+  const parsed = parseRequest(body);
+  if ('error' in parsed) {
+    return NextResponse.json(
+      { ok: false, command: '', output: parsed.error, refreshedAt: new Date().toISOString() } satisfies RefreshResult,
+      { status: 400 },
+    );
+  }
+  const command = `${PYTHON} ${parsed.args.join(' ')}`;
   try {
-    output.push(`Running: ${PYTHON} -m src.main`);
-    output.push(await runPython(['-m', 'src.main']));
-    output.push('Running: analyze.py --budget 90000 --risk-profile balanced');
-    output.push(await runPython(['analyze.py', '--budget', '90000', '--risk-profile', 'balanced']));
-
-    const result: RefreshResult = {
-      ok: true,
-      command: `${PYTHON} -m src.main && ${PYTHON} analyze.py --budget 90000 --risk-profile balanced`,
-      output: output.join('\n').trim(),
-      refreshedAt: new Date().toISOString(),
-    };
-
-    return NextResponse.json(result);
+    const { stdout, stderr } = await execFileAsync(PYTHON, parsed.args, {
+      cwd: REPO_ROOT,
+      timeout: 300_000,
+      windowsHide: true,
+      maxBuffer: 1024 * 1024 * 8,
+    });
+    return NextResponse.json({
+      ok: true, command, output: [stdout, stderr].filter(Boolean).join('\n').trim(), refreshedAt: new Date().toISOString(),
+    } satisfies RefreshResult);
   } catch (error: unknown) {
     const err = error as { stdout?: string; stderr?: string; message?: string };
-    output.push(err.stdout ?? '');
-    output.push(err.stderr ?? '');
-    output.push(err.message ?? 'Refresh failed');
-
     return NextResponse.json(
       {
         ok: false,
-        command: `${PYTHON} -m src.main && ${PYTHON} analyze.py --budget 90000 --risk-profile balanced`,
-        output: output.filter(Boolean).join('\n').trim(),
+        command,
+        output: [err.stdout, err.stderr, err.message ?? 'Refresh failed'].filter(Boolean).join('\n').trim(),
         refreshedAt: new Date().toISOString(),
       } satisfies RefreshResult,
       { status: 500 },

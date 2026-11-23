@@ -3,7 +3,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'CAL Fund Dashboard',
-  description: 'CAL fund CSV charts and refresh UI',
+  description: 'CAL unit trust price history, rankings and monthly allocation',
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

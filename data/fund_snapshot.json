@@ -1,0 +1,152 @@
+{
+  "BF": {
+    "code": "BF",
+    "api_name": "Capital Alliance Balanced Fund",
+    "latest_date": "2026-11-22",
+    "latest_price": 35.0652,
+    "series_price": 35.7819,
+    "aum_lkr": 428008768.6937,
+    "rate_period_days": 30,
+    "price_spread_pct": 2.0439
+  },
+  "CAHYF": {
+    "code": "CAHYF",
+    "api_name": "Capital Alliance High Yield Fund",
+    "latest_date": "2026-11-22",
+    "latest_price": 48.6056,
+    "series_price": 48.6056,
+    "aum_lkr": 45047273381.8728,
+    "rate_period_days": 30,
+    "price_spread_pct": 0.0
+  },
+  "CDGTF": {
+    "code": "CDGTF",
+    "api_name": "CAL Fixed Income Opportunities Fund",
+    "latest_date": "2026-11-22",
+    "latest_price": 44.7975,
+    "series_price": 44.7975,
+    "aum_lkr": 75705385996.8887,
+    "rate_period_days": 30,
+    "price_spread_pct": 0.0
+  },
+  "CTF": {
+    "code": "CTF",
+    "api_name": "Capital Alliance Corporate Treasury Fund",
+    "latest_date": "2026-11-23",
+    "latest_price": 28.783,
+    "series_price": 28.783,
+    "aum_lkr": 34928666.8951,
+    "rate_period_days": 30,
+    "price_spread_pct": 0.0
+  },
+  "FYCF": {
+    "code": "FYCF",
+    "api_name": "CAL Five Year Closed End Fund",
+    "latest_date": "2026-11-22",
+    "latest_price": 12.3487,
+    "series_price": 12.3487,
+    "aum_lkr": 11298156583.8943,
+    "rate_period_days": 30,
+    "price_spread_pct": 0.0
+  },
+  "FYOF": {
+    "code": "FYOF",
+    "api_name": "CAL Five year Optimum Fund",
+    "latest_date": "2026-11-22",
+    "latest_price": 15.5464,
+    "series_price": 15.5464,
+    "aum_lkr": 3014519631.4484,
+    "rate_period_days": 30,
+    "price_spread_pct": 0.0
+  },
+  "GF": {
+    "code": "GF",
+    "api_name": "Capital Alliance Gilt Fund",
+    "latest_date": "2026-11-23",
+    "latest_price": 14.8843,
+    "series_price": 14.8843,
+    "aum_lkr": 10858894.122,
+    "rate_period_days": 30,
+    "price_spread_pct": 0.0
+  },
+  "GMMF": {
+    "code": "GMMF",
+    "api_name": "CAL Money Market Fund",
+    "latest_date": "2026-11-22",
+    "latest_price": 7.4849,
+    "series_price": 7.4849,
+    "aum_lkr": 162311095.7773,
+    "rate_period_days": 7,
+    "price_spread_pct": 0.0
+  },
+  "GTF": {
+    "code": "GTF",
+    "api_name": "Capital Alliance Gilt Trading Fund",
+    "latest_date": "2026-11-23",
+    "latest_price": 83.5374,
+    "series_price": 83.5374,
+    "aum_lkr": 2705915.4563,
+    "rate_period_days": 30,
+    "price_spread_pct": 0.0
+  },
+  "IF": {
+    "code": "IF",
+    "api_name": "Capital Alliance Income Fund",
+    "latest_date": "2026-11-22",
+    "latest_price": 43.1943,
+    "series_price": 43.1943,
+    "aum_lkr": 868594190.1256,
+    "rate_period_days": 30,
+    "price_spread_pct": 0.0
+  },
+  "IGF": {
+    "code": "IGF",
+    "api_name": "Capital Alliance Investment Grade Fund",
+    "latest_date": "2026-11-22",
+    "latest_price": 42.3355,
+    "series_price": 42.3355,
+    "aum_lkr": 47481049382.5861,
+    "rate_period_days": 30,
+    "price_spread_pct": 0.0
+  },
+  "IMMF": {
+    "code": "IMMF",
+    "api_name": "CAL Islamic Money Market Fund",
+    "latest_date": "2026-11-22",
+    "latest_price": 10.6757,
+    "series_price": 10.6757,
+    "aum_lkr": 1243198541.758,
+    "rate_period_days": 7,
+    "price_spread_pct": 0.0
+  },
+  "MRDF": {
+    "code": "MRDF",
+    "api_name": "Capital Alliance Medium Risk Debt Fund",
+    "latest_date": "2026-11-23",
+    "latest_price": 25.9966,
+    "series_price": 25.9966,
+    "aum_lkr": 3359038.8561,
+    "rate_period_days": 30,
+    "price_spread_pct": 0.0
+  },
+  "QEF": {
+    "code": "QEF",
+    "api_name": "Capital Alliance Quantitative Equity Fund",
+    "latest_date": "2026-11-22",
+    "latest_price": 66.656,
+    "series_price": 68.0355,
+    "aum_lkr": 13702417641.1163,
+    "rate_period_days": 30,
+    "price_spread_pct": 2.0696
+  },
+  "TYCF": {
+    "code": "TYCF",
+    "api_name": "CAL Three Year Closed End Fund",
+    "latest_date": "2026-11-22",
+    "latest_price": 10.9312,
+    "series_price": 10.9312,
+    "aum_lkr": 9196011251.6527,
+    "rate_period_days": 30,
+    "price_spread_pct": 0.0
+  }
+}
