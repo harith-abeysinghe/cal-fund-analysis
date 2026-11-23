@@ -1,0 +1,10 @@
+date,indicator,value,note,source
+2026-11-20,policy_rate_opr,9.00,"CBSL Overnight Policy Rate, raised 25bp from 8.75% on 20-Nov-2026",https://www.lankabusinessonline.com/2026/11/20/central-bank-of-sri-lanka-increases-the-overnight-policy-rate-opr-by-25-basis-points/
+2026-11-20,tbill_364d,9.95,12-month Treasury bill yield (tap sales 6/13/20 Nov 2026),https://economynext.com/sri-lanka-sells-extra-rs1-7bn-treasury-bills-after-auction-290714/
+2026-11-20,tbill_182d,9.43,6-month Treasury bill yield,https://economynext.com/sri-lanka-sells-extra-rs1-7bn-treasury-bills-after-auction-290714/
+2026-11-11,tbill_91d,9.35,3-month Treasury bill yield,https://economynext.com/sri-lanka-sells-extra-rs3bn-treasury-bills-after-auction-289223/
+2026-11-02,fd_12m_avg,10.48,Average standard 12-month fixed deposit rate (market tracker; not the CBSL AWFDR),https://anybanq.lk/fixed-deposit-rates/history
+2023-12-31,usd_lkr,323.92,USD/LKR end-December 2023 (CBSL),https://www.cbsl.gov.lk/sites/default/files/cbslweb_documents/publications/market_operations_report_june_2025_e.pdf
+2024-12-31,usd_lkr,292.58,USD/LKR end-December 2024 (CBSL),https://www.cbsl.gov.lk/sites/default/files/cbslweb_documents/publications/market_operations_report_june_2025_e.pdf
+2025-12-31,usd_lkr,309.88,USD/LKR 31-Dec-2025 market close (secondary source),https://www.exchangerates.org.uk/USD-LKR-spot-exchange-rates-history-2025.html
+2026-11-20,lkr_ytd_change_pct,-6.9,Rupee change vs USD so far in 2026,https://www.bloomberg.com/news/articles/2026-11-20/sri-lanka-raises-policy-rate-to-ensure-inflation-reaches-target

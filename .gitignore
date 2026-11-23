@@ -17,3 +17,7 @@ output/
 cal-dashboard/.next/
 cal-dashboard/node_modules/
 *.tsbuildinfo
+
+# Personal holdings - never commit (see portfolio.example.json)
+portfolio.local.json
+*.local.json
