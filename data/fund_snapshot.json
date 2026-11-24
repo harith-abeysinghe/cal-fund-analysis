@@ -42,20 +42,20 @@
   "FYCF": {
     "code": "FYCF",
     "api_name": "CAL Five Year Closed End Fund",
-    "latest_date": "2026-11-22",
-    "latest_price": 12.3487,
-    "series_price": 12.3487,
-    "aum_lkr": 11298156583.8943,
+    "latest_date": "2026-11-23",
+    "latest_price": 12.3516,
+    "series_price": 12.3516,
+    "aum_lkr": 11300757588.7507,
     "rate_period_days": 30,
     "price_spread_pct": 0.0
   },
   "FYOF": {
     "code": "FYOF",
     "api_name": "CAL Five year Optimum Fund",
-    "latest_date": "2026-11-22",
-    "latest_price": 15.5464,
-    "series_price": 15.5464,
-    "aum_lkr": 3014519631.4484,
+    "latest_date": "2026-11-23",
+    "latest_price": 15.5498,
+    "series_price": 15.5498,
+    "aum_lkr": 3015183528.6102,
     "rate_period_days": 30,
     "price_spread_pct": 0.0
   },
@@ -142,10 +142,10 @@
   "TYCF": {
     "code": "TYCF",
     "api_name": "CAL Three Year Closed End Fund",
-    "latest_date": "2026-11-22",
-    "latest_price": 10.9312,
-    "series_price": 10.9312,
-    "aum_lkr": 9196011251.6527,
+    "latest_date": "2026-11-23",
+    "latest_price": 10.934,
+    "series_price": 10.934,
+    "aum_lkr": 9198361531.2989,
     "rate_period_days": 30,
     "price_spread_pct": 0.0
   }
